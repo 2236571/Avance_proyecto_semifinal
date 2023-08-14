@@ -55,4 +55,3 @@ class Conexion:
 if __name__ == '__main__':
     print(Conexion.obtenerConexion())
     print(Conexion.obtenerCursor())
-
