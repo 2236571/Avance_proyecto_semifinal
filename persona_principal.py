@@ -64,3 +64,12 @@ class PersonaPrincipal(QMainWindow):
                 self.ui.stb_estado.showMessage('GRABADO CON ÉXITO', 2000)
             else:
                 QMessageBox.critical(self, 'Error', respuesta['mensaje'])
+    def buscar_x_cedula(self):
+       cedula = self.ui.txt_cedula.text()
+       e = Estudiante(cedula=cedula)
+       e = EstudianteDao.seleccionar_por_cedula(e)
+       print(e)
+       self.ui.txt_nombre.setText(e.nombre)
+       self.ui.txt_apellido.setText(e.apellido)
+       self.ui.txt_email.setText(e.email)
+       self.ui.cb_tipo_persona.setCurrentText('Estudiante')
